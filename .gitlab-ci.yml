@@ -1,0 +1,20 @@
+stages:
+  - build
+  - tests
+
+build-main:
+  image: maven:3.8.6-openjdk-18
+  only:
+    - main
+  stage: build
+  script: 
+    - mvn clean build
+
+test-main:
+  image: maven:3.8.6-openjdk-18
+  only:
+    - main
+  stage: tests
+  script: 
+    - mvn test
+
