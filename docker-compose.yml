@@ -8,8 +8,6 @@ services:
     restart: on-failure
     ports:
       - "3000:3000"
-    # networks:
-    #   - employee_management_network
 
   backend:
     image: employee_management_backend
@@ -23,8 +21,6 @@ services:
       SERVER_PORT: 8080
     ports:
       - "8080:8080"
-    # networks:
-    #   - employee_management_network
 
   database:
     image: mysql:8.0.31
@@ -37,13 +33,7 @@ services:
       - "3306:3306"
     volumes:
       - employee_management_database:/var/lib/mysql
-    # networks:
-    #   - employee_management_network
-
-# networks:
-#   employee_management_network:
-#     name: employee_management_network
-
+  
 volumes:
   employee_management_database:
     name: employee_management_database
